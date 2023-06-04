@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
-public class VideoGame {
+public class VideoGame implements Comparable<VideoGame>{
     private String title;
     private double price;
     private ArrayList<Genre> genres;
@@ -125,9 +125,14 @@ public class VideoGame {
     }
     public boolean equals(Object obj) {
         VideoGame comparedGame = (VideoGame) obj;
-        return this.title == comparedGame.title;
+        return this.getTitle() == comparedGame.getTitle();
     }
     public int hashCode() {
-        return (int) Math.round(price);
+        return (int) Math.round(getPrice());
+    }
+
+    @Override
+    public int compareTo(VideoGame comparedGame) {
+        return Integer.compare((int) Math.round(comparedGame.getPrice()), (int) Math.round(this.getPrice()));
     }
 }

@@ -9,16 +9,16 @@ import java.util.Arrays;
 import java.util.Map;
 
 public class VideoGame {
-    String title;
-    double price;
-    ArrayList<Genre> genres;
-    MyDate releaseDate;
-    String countryOfOrigin; //страна-производитель
-    ArrayList<Language> languages;
-    ArrayList<String> activationRegions;
-    GamePlatform gamePlatform;
-    String developer;
-    Map<String, String> estimations;
+    private String title;
+    private double price;
+    private ArrayList<Genre> genres;
+    private MyDate releaseDate;
+    private String countryOfOrigin; //страна-производитель
+    private ArrayList<Language> languages;
+    private ArrayList<String> activationRegions;
+    private GamePlatform gamePlatform;
+    private String developer;
+    private Map<String, String> estimations;
 
     public VideoGame(String title, double price, ArrayList<Genre> genres, MyDate releaseDate,
                      String countryOfOrigin, ArrayList<Language> languages,
@@ -122,5 +122,12 @@ public class VideoGame {
                         "Регион активации: %s, Платформа: %s, Разработчик: %s, Оценки: %s", this.title, this.price,
                 this.genres.toString(), this.releaseDate, this.countryOfOrigin, this.languages.toString(),
                 this.activationRegions.toString(), this.gamePlatform, this.developer, Arrays.toString(this.estimations.entrySet().toArray()));
+    }
+    public boolean equals(Object obj) {
+        VideoGame comparedGame = (VideoGame) obj;
+        return this.title == comparedGame.title;
+    }
+    public int hashCode() {
+        return (int) Math.round(price);
     }
 }

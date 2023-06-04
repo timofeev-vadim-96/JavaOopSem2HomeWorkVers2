@@ -4,9 +4,9 @@ import models.User;
 import models.auxilaryModels.MyDate;
 
 public class Customer extends User {
-    protected String phoneNumber;
-    protected MyDate birthDay;
-    protected String address;
+    private String phoneNumber;
+    private MyDate birthDay;
+    private String address;
 
     public Customer(String firstName, String lastName, MyDate birthDay, String address, String phoneNumber) {
         super(firstName, lastName);
